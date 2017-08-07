@@ -28,6 +28,13 @@
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/pmd-datatable.css'); ?>">
 <?php } ?>
+
+<?php if(isset($page) && $page == 'allposts'){ ?>
+<!-- Select2 css-->
+<link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/select2.min.css'); ?>" />
+<link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/select2-bootstrap.css'); ?>" />
+<link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/pmd-select2.css'); ?>" />
+<?php } ?>
 <!-- Propeller theme css-->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/propeller-theme.css'); ?>" />
 
@@ -62,17 +69,19 @@ tinymce.init({
 
 	<div class="container-fluid">
 		<div class="pmd-navbar-right-icon pull-right navigation">
-
+			<?php if (!$this->session->userdata('logged_in')){ ?>
+		  	
+			<a href="<?php echo base_url('login');?>" class="navbar-brand ">Sign In</a>
+			
+		<?php }?>
 		</div>
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
 			<a href="javascript:void(0);" class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect pull-left margin-r8 pmd-sidebar-toggle"><i class="material-icons">menu</i></a>	
-		  <a href="index.html" class="navbar-brand">Skies Blog</a>
-
+		  <a href="<?php echo base_url('/');?>" class="navbar-brand">Skies Blog</a>
+		  
 		</div>
-		<?php if (!$this->session->userdata('logged_in')){ ?>
-			<a href="<?php echo base_url('login');?>" class="navbar-brand pull-right">Sign In</a>
-		<?php }?>
+		
 		
 			
 

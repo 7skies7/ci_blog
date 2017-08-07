@@ -7,10 +7,13 @@ class Post extends CI_Controller {
     {
             parent::__construct();
             $this->load->model('Post_model');
+            $this->load->model('User_model');
             $this->load->helper('url_helper');
             $this->load->helper('form');
     		$this->load->library('form_validation');
     		$this->load->library("pagination");
+    	
+    		$this->load->helper('custom_helper');
     }
 
 	public function index()
@@ -19,10 +22,10 @@ class Post extends CI_Controller {
 		$config = $this->paginationConfig();
         $this->pagination->initialize($config);
 		$page = ($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
-		
+		$data['page'] = 'allposts';
         $data['posts'] = $this->Post_model->fetch_Post($config["per_page"], $page);
 		$data['links'] = $this->pagination->create_links();
-		$this->load->view('layouts/header');
+		$this->load->view('layouts/header',$data);
         $this->load->view('post/index',$data);
         $this->load->view('layouts/footer');
 	}
@@ -31,6 +34,7 @@ class Post extends CI_Controller {
 	{
 		
 		$data['post'] = $this->Post_model->getPost($id);
+		$data['comments'] = $this->Post_model->getPostComments($id);
 		$data['title'] = $data['post']['post_title'];
 		$this->load->view('layouts/header');
         $this->load->view('post/show',$data);
@@ -84,6 +88,7 @@ class Post extends CI_Controller {
 		
     	$data['post'] = $this->Post_model->getPost($id);
 		$data['title'] = 'Create Post';
+		
 		
 	    $this->form_validation->set_rules('post_title', 'Post Title', 'required');
 	    $this->form_validation->set_rules('post_desc', 'Post Description', 'required');
@@ -168,5 +173,6 @@ class Post extends CI_Controller {
 
         return $config;
 	}
+
 
 }

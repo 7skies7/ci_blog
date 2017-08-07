@@ -31,6 +31,14 @@
 							<textarea id="post_desc" class="form-control" type="textarea" name="post_desc"><?= $post['post_desc'];?></textarea><span class="pmd-textfield-focused" ></span>
 						</div>
 						
+
+						<div class="form-group pmd-textfield pmd-textfield-floating-label">
+							
+							<img src="<?php echo base_url('uploads/'.$post['post_image']);?>" width="200" height="200">
+							
+						</div>	
+
+
 						<div class="form-group pmd-textfield pmd-textfield-floating-label">
 							<label for="post_image" class="control-label">Post Image</label>
 							<input id="post_image" class="form-control" type="file" name="post_image"><span class="pmd-textfield-focused" ></span>
@@ -44,13 +52,12 @@
 							
 						</div>
 					</div>
+					</form>
 				</div>
 							
 			</div>
-		 	
-		 	
-	</div>
+			</div>
 </div>
 
 </div><!--end content area-->
-
+</div>

@@ -68,3 +68,4 @@ $route['post/myposts'] = 'Post/myposts';
 $route['dashboard'] = 'Dashboard/index';
 $route['user/delete/(:num)'] = 'User/delete/$1';
 $route['user/access/(:num)'] = 'User/access/$1';
+$route['post/addcomment'] = 'Comment/addcomment';

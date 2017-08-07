@@ -3,7 +3,31 @@
 
 	<div class="container-fluid">
 		<div class="row" id="card-masonry">
-		 	
+		 	    <div class="component-box">
+				
+					<!-- selectbox example -->
+					<div class="row toggle-button-custom">
+						<div class="col-md-4 col-sm-12 col-xs-12">
+							<div class="pmd-card pmd-z-depth pmd-card-custom-form">
+								<div class="pmd-card-body"> 
+									
+									<!--Simple Select with Search-->
+									<div class="form-group pmd-textfield pmd-textfield-floating-label">
+										<label>Search Based on Title</label>
+										<select class="select-with-search pmd-select2 form-control">
+											<!--<option></option> -->
+											<option></option>
+											<?php foreach($posts as $post){ ?>
+											<option value="<?php echo $post['id']; ?>"><?php echo $post['post_title'];?></option>
+											<?php } ?>
+										</select>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div> <!-- selectbox example end-->
+				</div>
 		 	<?php foreach($posts as $post){ ?>
 		 	<!--Recent Posts-->
 		 	<div class="col-lg-4 col-sm-6 col-xs-12">

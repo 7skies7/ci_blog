@@ -117,6 +117,26 @@ var exampleDatatabl = $('#exampleUsers').DataTable({
 
 
 <?php } ?>
+<?php if(isset($page) && $page == 'allposts'){ ?>
+<script type="text/javascript" src="<?= base_url('assets/js/select2.full.js'); ?>"></script>
+<!-- Propeller Select2 -->
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		<!-- Selectbox with search -->
+		$(".select-with-search").select2({
+			theme: "bootstrap"
+		});
+
+		$(".select-with-search").change(function(){
+			
+			window.location = 'post/'+ $(this).val();
+		});
+
+	});
+</script>
+<script type="text/javascript" src="<?= base_url('assets/js/pmd-select2.js'); ?>"></script>
+<?php } ?>
 <!-- login page sections show hide -->
 <script type="text/javascript">
 	//$(document).ready(function(){
