@@ -18,7 +18,7 @@
 						<?php echo validation_errors(); ?> 
 					</div>
 					<?php } ?>
-					<?php echo form_open('post/edit/'.$post['id']); ?>
+					<?php echo form_open_multipart('post/edit/'.$post['id']); ?>
 					<div class="pmd-card-body"> 
 						<!-- Regular Floating Input -->
 						<div class="form-group pmd-textfield pmd-textfield-floating-label">
@@ -28,12 +28,18 @@
 						<!-- Password Floating Input -->	
 						<div class="form-group pmd-textfield pmd-textfield-floating-label">
 							<label for="post_desc" class="control-label">Post Content</label>
-							<input id="post_desc" class="form-control" type="text" name="post_desc" 
-							value="<?= $post['post_desc'];?>" ><span class="pmd-textfield-focused" ></span>
+							<textarea id="post_desc" class="form-control" type="textarea" name="post_desc"><?= $post['post_desc'];?></textarea><span class="pmd-textfield-focused" ></span>
 						</div>
-							
 						
-						 <div class="pmd-card-actions">
+						<div class="form-group pmd-textfield pmd-textfield-floating-label">
+							<label for="post_image" class="control-label">Post Image</label>
+							<input id="post_image" class="form-control" type="file" name="post_image"><span class="pmd-textfield-focused" ></span>
+							
+						</div>	
+						
+						<div class="pmd-card-actions">
+						 	<input id="post_author" name="post_author" type="hidden" value="<?php echo $this->session->userdata('id');?>">
+						 	<input id="post_image" name="post_image" type="hidden" value="<?php echo $post['post_image'];?>">
 							<button type="submit" class="btn minWidthC text-center pmd-btn-raised pmd-ripple-effect btn-info form-control">Save</button>	
 							
 						</div>

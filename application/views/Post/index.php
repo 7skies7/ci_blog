@@ -13,17 +13,18 @@
 				    
 				    <!-- Card media -->
 				    <div class="pmd-card-media">
-				        <img src="http://propeller.in/assets/images/profile-pic.png" width="1184" height="666" class="img-responsive">
+				        <img src="<?php echo base_url('/uploads/'.$post['post_image']); ?>" width="1184" height="666" class="img-responsive fixedwdImg">
 				    </div>
 				    
 				    <!-- Card body -->
 				    <div class="pmd-card-title">
-				        <h2 class="pmd-card-title-text"><?php echo $post['post_title']; ?></h2>
+				        <h2 class="pmd-card-title-text">
+				        <?php echo substr(strip_tags($post['post_title']), 0, 25); ?></h2>
 				        <!-- <span class="pmd-card-subtitle-text">Secondary text</span>	 -->
 				    </div>	
 				    
 				    <div class="pmd-card-body">
-				        <?php echo $post['post_desc']; ?>
+				        <?php echo substr(strip_tags($post['post_desc']), 0, 150); ?>....
 				    </div>
 				    
 
@@ -31,7 +32,7 @@
 				    <!-- Card actions -->
 				    <div class="pmd-card-actions">
 				        <a href="<?=base_url('post/'.$post['id']);?>" class="btn pmd-btn-raised pmd-ripple-effect btn-primary" type="button">View</a>
-				        <?php if ($this->session->userdata('logged_in')){ ?>
+				        <?php if ($this->session->userdata('logged_in') && $this->session->userdata('role_id') == 1){ ?>
 					        <a href="<?=base_url('post/edit/'.$post['id']);?>" class="btn pmd-btn-raised	 pmd-ripple-effect btn-default">Edit</a>
 					        <a href="<?=base_url('post/delete/'.$post['id']);?>" class="btn pmd-btn-raised	 pmd-ripple-effect btn-default">Delete</a>
 					    <?php } ?>
@@ -42,6 +43,10 @@
 		 	</div><!-- end Recent Posts-->	
 		 
 		 	<?php } ?>
+		 	
+	</div>
+	<div class="row" id="card-masonry">
+		<div class="text-center"><?php echo $links; ?></div>
 	</div>
 </div>
 

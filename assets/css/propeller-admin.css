@@ -549,3 +549,7 @@ h1.pmd-display4 { font-size: 4rem;}
 }
 /*======================== Tab page======================*/
 .dropdown-tab .pmd-tabs .nav .open > a, .dropdown-tab .pmd-tabs .nav .open > a:hover, .dropdown-tab .pmd-tabs .nav .open > a:focus { background-color: transparent; border-color: transparent; opacity: 1;}
+
+.fixedwdImg{height: 170px!important;}
+.loginCenter{margin:0 auto!important;}
+.register-card{display: block;}

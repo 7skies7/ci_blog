@@ -13,12 +13,12 @@
 		 	<!--Recent Posts-->
 		 	<div class="col-lg-12 col-sm-12 col-xs-12">
 				<!-- Default card starts -->
-				<div class="pmd-card pmd-card-default pmd-z-depth">
+				<div class="pmd-card pmd-card-default pmd-z-depth"> 
 
 
 				    <!-- Card media -->
 				    <div class="pmd-card-media">
-				        <img src="http://propeller.in/assets/images/profile-pic.png" width="1184" height="666" class="img-responsive">
+				        <img src="<?php echo base_url('/uploads/'.$post['post_image']); ?>" width="1184" height="666" class="img-responsive">
 				    </div>
 				    
 				    <!-- Card body -->
@@ -34,11 +34,11 @@
 
 				    
 				    <!-- Card actions -->
-				    <div class="pmd-card-actions">
-				    	<?php if ($this->session->userdata('logged_in')){ ?>
-				        <a href="<?=base_url('post/edit/'.$post['id']);?>" class="btn pmd-btn-flat pmd-ripple-effect btn-primary" type="button">Edit</a>
+				    <div class="pmd-card-actions text-center">
+				    	<?php if ($this->session->userdata('logged_in') && $this->session->userdata('role_id') != 3){ ?>
+				        <a href="<?=base_url('post/edit/'.$post['id']);?>" class="btn pmd-btn-raised pmd-ripple-effect btn-primary" type="button">Edit</a>
 				        <?php } ?>
-				        <a href="<?=base_url('posts');?>" class="btn pmd-btn-flat pmd-ripple-effect btn-default">Back</a>
+				        <a href="<?=base_url('posts');?>" class="btn pmd-btn-raised pmd-ripple-effect btn-default">Back</a>
 				    </div>
 				</div>
 				<!--Default card ends -->
