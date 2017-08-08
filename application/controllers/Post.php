@@ -25,9 +25,8 @@ class Post extends CI_Controller {
 		$data['page'] = 'allposts';
         $data['posts'] = $this->Post_model->fetch_Post($config["per_page"], $page);
 		$data['links'] = $this->pagination->create_links();
-
 		$this->load->view('layouts/header',$data);
-        $this->load->view('Post/post',$data);
+        $this->load->view('Post/index',$data);
         $this->load->view('layouts/footer');
 	}
 
@@ -38,7 +37,7 @@ class Post extends CI_Controller {
 		$data['comments'] = $this->Post_model->getPostComments($id);
 		$data['title'] = $data['post']['post_title'];
 		$this->load->view('layouts/header');
-        $this->load->view('post/show',$data);
+        $this->load->view('Post/show',$data);
         $this->load->view('layouts/footer');
 	}
 
@@ -53,7 +52,7 @@ class Post extends CI_Controller {
 	    if ($this->form_validation->run() === FALSE)
 	    {
 	        $this->load->view('layouts/header');
-	        $this->load->view('post/create',$data);
+	        $this->load->view('Post/create',$data);
 	        $this->load->view('layouts/footer');
 
 	    }
@@ -71,7 +70,7 @@ class Post extends CI_Controller {
 		     	if ( ! $this->upload->do_upload('post_image'))
 	            {
 	                    $error = array('error' => $this->upload->display_errors());
-	                    $this->load->view('post/create', $error);
+	                    $this->load->view('Post/create', $error);
 	            }
 	            $imagename = $this->upload->data('file_name');
 	        }else{
@@ -97,7 +96,7 @@ class Post extends CI_Controller {
 	    if ($this->form_validation->run() === FALSE)
 	    {
 	        $this->load->view('layouts/header');
-	        $this->load->view('post/edit',$data);
+	        $this->load->view('Post/edit',$data);
 	        $this->load->view('layouts/footer');
 
 	    }
@@ -141,7 +140,7 @@ class Post extends CI_Controller {
 		$data['title'] = 'My Posts';
 		$page['page'] = 'myposts';
 		$this->load->view('layouts/header',$page);
-        $this->load->view('post/ccreatorposts',$data);
+        $this->load->view('Post/ccreatorposts',$data);
         $this->load->view('layouts/footer',$page);
 	}
 
