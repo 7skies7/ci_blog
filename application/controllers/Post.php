@@ -25,10 +25,9 @@ class Post extends CI_Controller {
 		$data['page'] = 'allposts';
         $data['posts'] = $this->Post_model->fetch_Post($config["per_page"], $page);
 		$data['links'] = $this->pagination->create_links();
-		echo '<pre>';
-		print_r($data);die;
+
 		$this->load->view('layouts/header',$data);
-        $this->load->view('post/post',$data);
+        $this->load->view('Post/post',$data);
         $this->load->view('layouts/footer');
 	}
 
