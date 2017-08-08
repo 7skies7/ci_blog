@@ -202,7 +202,7 @@
 						</span>
 					</div>
 					<div class="media-body media-middle">
-						<h2 class="pmd-card-title-text typo-fill-secondary">All Posts</h2>
+						<h2 class="pmd-card-title-text typo-fill-secondary">All Users</h2>
 					</div>
 				</div>
 

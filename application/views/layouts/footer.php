@@ -4,7 +4,7 @@
  <div class="container-fluid">
  	<ul class="list-unstyled list-inline">
 	 	<li>
-			<span class="pmd-card-subtitle-text">Propeller &copy; <span class="auto-update-year"></span>. All Rights Reserved.</span>
+			<span class="pmd-card-subtitle-text">Skiesblog &copy; <span class="auto-update-year"></span>. All Rights Reserved.</span>
 			<h3 class="pmd-card-subtitle-text">Licensed under <a href="https://opensource.org/licenses/MIT" target="_blank">MIT license.</a></h3>
         </li>
 
